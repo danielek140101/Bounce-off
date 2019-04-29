@@ -5,12 +5,13 @@ using UnityEngine;
 public class Player_Jump : MonoBehaviour
 {
     public float jumpForce = 300.0f;
-    public bool doubleJump = false;
+    public bool DoneWithAirJump = false;
+    public bool groundJump = false;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public bool grounded = false;
     public LayerMask WhatIsGround;
-    
+
 
     private void FixedUpdate()
     {
@@ -18,17 +19,28 @@ public class Player_Jump : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
 
         if (grounded)
-            doubleJump = false;
+            DoneWithAirJump = false;
+        groundJump = false;
 
-        if (jump && (grounded || !doubleJump))
+        if (jump && grounded)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
-            
-            if (!doubleJump && !grounded)
-                doubleJump = true;
+            groundJump = true;
+           
+        }
+
+        if(jump && !grounded && !DoneWithAirJump)
+        {
+            var airJumpForce = jumpForce;
+
+            if(groundJump == true)
+            {
+                airJumpForce *= 2;
+            }
+            GetComponent<Rigidbody2D>().AddForce(Vector3.up * airJumpForce);
+
+            DoneWithAirJump = true;
+
         }
     }
-
-
-
 }

@@ -810,8 +810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4507b7b320360419c2de381f5afb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
-  doubleJump: 0
+  jumpForce: 400
+  DoneWithAirJump: 0
+  groundJump: 0
   groundCheck: {fileID: 1634038910}
   groundRadius: 0.2
   grounded: 0
