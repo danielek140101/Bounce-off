@@ -6,13 +6,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10f;
-    Rigidbody2D rb;
     public bool facingRight = true;
+    Rigidbody2D rb;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+       // rb = GetComponent<Rigidbody2D>();
+        rb = transform.GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
         if(move > 0 && !facingRight)
             Flip();
+     
     }
 
     void Flip()
@@ -32,9 +36,5 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(Vector3.up * 180);
     }
-
-
-
-
 
 }
