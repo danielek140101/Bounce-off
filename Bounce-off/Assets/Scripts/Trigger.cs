@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-    public float BounceForce = 1000;
+    public float BounceForce = 1000f;
     public Collision2D collision;
     public bool bounce;
 
@@ -35,8 +35,8 @@ public class Trigger : MonoBehaviour
         if (bounce)
         {
             var rb = collision.gameObject.GetComponent<Rigidbody2D>();
-           rb.velocity = new Vector3(0, 0, 0);
-            rb.AddForce(new Vector2(0f, BounceForce));
+            rb.velocity = new Vector2(0, 0);
+            rb.AddForce(new Vector3(0f , BounceForce));
             bounce = false;
             Debug.Log($"{collision.gameObject.name} bouncec with force of {BounceForce}");
         }
