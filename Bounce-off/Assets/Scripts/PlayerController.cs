@@ -32,9 +32,4 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(Vector3.up * 180);
     }
-
-
-
-
-
 }
