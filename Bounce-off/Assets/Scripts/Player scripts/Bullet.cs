@@ -13,6 +13,17 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
+        Debug.Log($"Camera: {Camera.main}");
+    }
+
+    private void Update()
+    {
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+
+        if (screenPosition.x > Screen.width || screenPosition.x < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 

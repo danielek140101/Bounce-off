@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 139515369}
   - component: {fileID: 139515372}
   - component: {fileID: 139515373}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Happy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -267,7 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 100
-  doubleJump: 0
+  DoneWithAirJump: 0
+  groundJump: 0
   groundCheck: {fileID: 735027822}
   groundRadius: 0.2
   grounded: 0
@@ -430,7 +431,7 @@ GameObject:
   - component: {fileID: 432265467}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,12 +495,62 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432265466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5795845, y: -3.5931604, z: -5.3857226}
+  m_LocalPosition: {x: -1.5795845, y: -3.45, z: -8.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &580465559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580465560}
+  - component: {fileID: 580465561}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &580465560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580465559}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 878920631}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580465561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580465559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026692dcc6bd2d94f816f824dd268375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumSightDistance: 100
+  MaskToHit:
+    serializedVersion: 2
+    m_Bits: 512
+  bulletPrefab: {fileID: 4976693217824506559, guid: 483d5ce6a40b04d4c969088d78e01285,
+    type: 3}
+  fireRate: 0.5
 --- !u!1 &735027821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,8 +1170,8 @@ GameObject:
   - component: {fileID: 878920630}
   - component: {fileID: 878920629}
   m_Layer: 0
-  m_Name: sad (1)
-  m_TagString: Untagged
+  m_Name: sad
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1140,7 +1191,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 4.655
 --- !u!212 &878920630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1199,7 +1250,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.51, y: -3.63, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 580465560}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
