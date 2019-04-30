@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-<<<<<<< HEAD
-  - CanBounce
-=======
   - Killzone
->>>>>>> 921f0291af73ce634f1b85ee8e5962ebffab3ee2
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,9 +15,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Ground
-  - Killzone
+  - 
+  - 
+  - 
   - 
   - 
   - 
