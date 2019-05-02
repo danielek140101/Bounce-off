@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
 
         if (Rotation != 0)
         {
-            Debug.Log("Jag är åt fel håll");
+            //Debug.Log("Jag är åt fel håll");
             RestoreRotation();
             // restoreRotation = true;
         }
@@ -47,6 +47,7 @@ public class EnemyAI : MonoBehaviour
         //Check ground
         RaycastHit2D ground = Physics2D.Raycast(groundCheck.position, Vector2.down);
 
+
         //Draw a line to see RayCast
         Debug.DrawRay(groundCheck.position, Vector3.down, Color.magenta);
 
@@ -56,7 +57,7 @@ public class EnemyAI : MonoBehaviour
 
     private void RestoreRotation()
     {
-       transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
     }
 
     public void Flip(RaycastHit2D ground)
@@ -67,13 +68,14 @@ public class EnemyAI : MonoBehaviour
             {
                 transform.eulerAngles = new Vector2(0, -180);
                 facingRight = false;
-          
+                Debug.Log("Jag vänder håll ground");
+
             }
             else if (!facingRight)
             {
                 transform.eulerAngles = new Vector2(0, 0);
                 facingRight = true;
-         
+
             }
         }
     }
