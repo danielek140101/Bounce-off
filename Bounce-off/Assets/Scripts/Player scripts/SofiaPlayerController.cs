@@ -5,8 +5,8 @@ using UnityEngine;
 public class SofiaPlayerController : MonoBehaviour
 {
     public float speed = 10f;
-    public bool facingRight = true;
-    private Vector2 playerVelocity;
+    private float acceleration;
+    private bool facingRight = true;
     Rigidbody2D rb;
 
 
@@ -16,23 +16,34 @@ public class SofiaPlayerController : MonoBehaviour
     {
         // rb = GetComponent<Rigidbody2D>();
         rb = transform.GetComponent<Rigidbody2D>();
-        playerVelocity = Vector2.zero;
-    }
+        acceleration = 0f;
 
-    private void FixedUpdate()
+
+}
+
+private void FixedUpdate()
     {
         float move = Input.GetAxis("Horizontal");
-        if(rb.velocity.x < speed)
-        {
-            rb.velocity += new Vector2(speed * move, 0);
 
+        if (move != 0)
+        {
+            var myVector = new Vector2(speed * move, rb.velocity.y);
+            rb.velocity = myVector;
+            Debug.Log("Jag går");
         }
+   
+    
+
+        //rb.velocity = new Vector2(speed * move, rb.velocity.y);
+
 
         if (move < 0 && facingRight)
             Flip();
 
         if (move > 0 && !facingRight)
             Flip();
+
+      
 
     }
 
