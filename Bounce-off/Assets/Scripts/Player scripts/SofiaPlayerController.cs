@@ -29,7 +29,7 @@ private void FixedUpdate()
         {
             var myVector = new Vector2(speed * move, rb.velocity.y);
             rb.velocity = myVector;
-            Debug.Log("Jag går");
+           // Debug.Log("Jag går");
         }
    
     

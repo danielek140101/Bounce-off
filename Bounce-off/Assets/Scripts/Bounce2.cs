@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bounce2 : MonoBehaviour
 {
     public float bounceForce = 100f;
-    public LayerMask CollidebleLayer;
     private float totalForce_X = 0f;
     private float totalForce_Y = 0f;
    
@@ -20,10 +19,26 @@ public class Bounce2 : MonoBehaviour
     void Update()
     {
 
+        //if (totalForce_X < 0) //manual friction
+        //{
+        //    var friction = bounceForce / 10;
+
+        //    GetComponent<Rigidbody2D>().AddForce(new Vector2(friction, 0));
+        //    totalForce_X -= bounceForce / 10;
+
+        //    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -1));
+        //    totalForce_Y -= 1;
+
+        //    Debug.Log($"Actual Force: {totalForce_X}");
+        //    Debug.Log($"TotalForce_X: {GetComponent<Rigidbody2D>().velocity.x}");
+
+        //}
     }
 
     public void OnCollisionEnter2D(Collision2D coll)
     {
+
+
         //if (coll.gameObject.GetComponent<Rigidbody2D>() != null)
         //{
         //    {
@@ -37,7 +52,8 @@ public class Bounce2 : MonoBehaviour
         //    }
         //}
 
-        if (coll.gameObject.layer == CollidebleLayer)
+
+        if (!coll.gameObject.name.Equals("Ground"))
         {
             {
                 var force = new Vector2(-bounceForce, 10);
@@ -45,17 +61,13 @@ public class Bounce2 : MonoBehaviour
                 totalForce_X += force.x;
                 totalForce_Y += force.y;
 
-                Debug.Log($"{coll.gameObject.name} bounce with force of {bounceForce}");
+         
+
+                Debug.Log($"{gameObject.name} bounce with force of {bounceForce}");
             }
         }
 
-        if (totalForce_X > 0) //manual friction
-        {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(bounceForce/10,0));
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0,1));
-            Debug.Log($"TotalForce: {totalForce_X}");
-
-        }
+  
     }
 
 }
