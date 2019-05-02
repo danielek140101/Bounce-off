@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     public float speed;
-    bool facingRight = true;
+    public bool facingRight = true;
     public float distance = 2f;
     public float rotationSpeed = 2f;
     public Transform groundCheck;
@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
        transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
     }
 
-    private void Flip(RaycastHit2D ground)
+    public void Flip(RaycastHit2D ground)
     {
         if (ground.collider == false)
         {
