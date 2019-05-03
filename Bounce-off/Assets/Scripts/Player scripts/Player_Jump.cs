@@ -5,12 +5,14 @@ using UnityEngine;
 public class Player_Jump : MonoBehaviour
 {
     public float jumpForce = 300.0f;
-    public bool DoneWithAirJump = false;
-    public bool groundJump = false;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
-    public bool grounded = false;
     public LayerMask WhatIsGround;
+
+    private bool grounded = false;
+    private bool DoneWithAirJump = false;
+    private bool groundJump = false;
+  
 
 
     private void FixedUpdate()
