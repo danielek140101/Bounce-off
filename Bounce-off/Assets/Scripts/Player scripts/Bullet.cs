@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if (knockBack && gameObject.tag == "Enemy")
+        if (knockBack && gameObject.tag == "Player")
         {
             knockBack = !knockBack;
             rb.AddForce(transform.right * thrust);
@@ -36,6 +36,4 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
 }
