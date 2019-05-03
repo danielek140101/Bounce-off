@@ -24,7 +24,7 @@ public class SelfBounce : MonoBehaviour
         {
             {
                 var force = new Vector2(-bounceForce, 10);
-                GetComponent<Rigidbody2D>().AddForce(force);
+                GetComponent<Rigidbody2D>().AddRelativeForce(force);
           
                 //Debug.Log($"{gameObject.name} bounce with force of {bounceForce}");
             }

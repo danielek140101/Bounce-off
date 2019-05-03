@@ -16,7 +16,7 @@ public class AiShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log($"My position {transform.position}");
+        //Debug.Log($"My position {transform.position}");
     }
 
     // Update is called once per frame
@@ -30,9 +30,9 @@ public class AiShoot : MonoBehaviour
             Instantiate(bulletPrefab, transform.position, transform.rotation);
 
 
-            Debug.Log($"time {Time.time}");
-            //Debug.Log($"I see {sight.collider.name} at {sight.distance}");
-            Debug.DrawRay(transform.position, Vector2.right, Color.green);
+            //Debug.Log($"time {Time.time}");
+            Debug.Log($"I see {sight.collider.name} at {sight.distance}");
+           // Debug.DrawRay(transform.position, Vector2.right, Color.green);
 
         }
     }
