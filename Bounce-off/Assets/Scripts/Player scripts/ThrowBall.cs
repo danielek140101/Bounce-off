@@ -17,7 +17,12 @@ public class ThrowBall : MonoBehaviour
         }
     }
 
-     void Shoot()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(collision.gameObject);   
+    }
+
+    void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
