@@ -35,7 +35,7 @@ public class Player_Jump : MonoBehaviour
 
             if(groundJump == true)
             {
-                airJumpForce *= 5;
+                airJumpForce *= 50;
             }
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * airJumpForce);
 
