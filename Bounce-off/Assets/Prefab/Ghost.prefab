@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 5307374922681141458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: -0.06, z: 0}
-  m_LocalScale: {x: 0.22094399, y: 0.22094399, z: 0.22094399}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 5307374921470976583}
   - {fileID: 5307374921817992489}
@@ -211,11 +211,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5307374922681141458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350df49febee2f941bd1b77a0a022244, type: 3}
+  m_Script: {fileID: 11500000, guid: 816c3df8fb995794f8bcf2353aa21acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
   groundCheck: {fileID: 5307374921470976583}
+  maxGroundDistance: 2
 --- !u!114 &5307374922681141448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5307374922681141458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8437821549de3149a63717a12144189, type: 3}
+  m_Script: {fileID: 11500000, guid: 46919f9643d41824d88da408f922b2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 100
