@@ -41,7 +41,7 @@ public class SelfBounce : MonoBehaviour
 
 
 
-            Debug.Log($"{gameObject.name} bounce with force of {bounceForce}");
+            Debug.Log($"Studsar på:{coll.gameObject.name}");
             
         }
     }
