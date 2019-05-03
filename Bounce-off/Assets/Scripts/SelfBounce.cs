@@ -5,11 +5,12 @@ using UnityEngine;
 public class SelfBounce : MonoBehaviour
 {
     public float bounceForce = 100f;
+    private Rigidbody2D rb;
 
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -22,12 +23,26 @@ public class SelfBounce : MonoBehaviour
     {
         if (!coll.gameObject.name.Equals("Ground"))
         {
+                float position =  coll.transform.position.x - rb.transform.position.x;
+
+                if(position> 0)
             {
                 var force = new Vector2(-bounceForce, 10);
-                GetComponent<Rigidbody2D>().AddRelativeForce(force);
-          
-                //Debug.Log($"{gameObject.name} bounce with force of {bounceForce}");
+                rb.AddForce(force);
+               // Debug.Log("Framstuds");
             }
+            else
+            {
+                var force = new Vector2(bounceForce, 10);
+                rb.AddForce(force);
+                //Debug.Log("Bakstuds");
+
+            }
+
+
+
+            Debug.Log($"{gameObject.name} bounce with force of {bounceForce}");
+            
         }
     }
 }
