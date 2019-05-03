@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float distance = 2f;
     public float rotationSpeed = 2f;
     public Transform groundCheck;
+    private bool inAir;
 
     public Quaternion originalRotation;
     public float rotateSpeed = 0.1f;
@@ -17,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         originalRotation = transform.rotation;
+        inAir = false;
 
     }
     // Update is called once per frame
@@ -33,8 +35,11 @@ public class EnemyAI : MonoBehaviour
         }
 
         Movement();
+
+      //  CheckInAir();
     }
 
+ 
     private void Movement()
     {
 
@@ -51,7 +56,10 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(groundCheck.position, Vector3.down, Color.magenta);
 
         // Change direction
-        Flip(ground);
+      
+            Flip(ground);
+
+        
     }
 
     private void RestoreRotation()
@@ -61,7 +69,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Flip(RaycastHit2D ground)
     {
-        if (ground.collider == false)
+        if (ground.collider == false && !inAir)
         {
             if (facingRight)
             {
@@ -69,12 +77,27 @@ public class EnemyAI : MonoBehaviour
                 facingRight = false;
           
             }
-            else if (!facingRight)
+            else if (!facingRight && !inAir)
             {
                 transform.eulerAngles = new Vector2(0, 0);
                 facingRight = true;
          
             }
+        }
+
+        CheckInAir(ground);
+
+    }
+
+    private void CheckInAir(RaycastHit2D ground)
+    {
+        if (ground.collider)
+        {
+            inAir = false;
+        }
+        else
+        {
+            inAir = true;
         }
     }
 }
