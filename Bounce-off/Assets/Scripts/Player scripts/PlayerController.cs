@@ -44,10 +44,23 @@ public class PlayerController : MonoBehaviour
         }
 
         if (move < 0 && facingRight)
-            Flip();
+        {
+            transform.eulerAngles = new Vector2(0, -180);
+            facingRight = !facingRight;
+           // Debug.Log("Höger");
+        }
+          
 
         if (move > 0 && !facingRight)
-            Flip();
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+            facingRight = true ;
+
+            //Debug.Log("Vänster");
+
+
+        }
+
     }
 
     private void Jump()
@@ -91,7 +104,7 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.Rotate(Vector3.up * 180);
+        //transform.Rotate(Vector2.up * 180);
     }
 
 }
