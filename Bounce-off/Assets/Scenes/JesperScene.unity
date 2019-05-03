@@ -1714,6 +1714,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10.01
   facingRight: 1
+  jumpForce: 300
+  groundCheck: {fileID: 1634038910}
+  groundRadius: 0.2
+  WhatIsGroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  grounded: 0
 --- !u!114 &862326515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,11 +1749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 600
-  DoneWithAirJump: 0
-  groundJump: 0
   groundCheck: {fileID: 1634038910}
   groundRadius: 0.2
-  grounded: 0
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 55
