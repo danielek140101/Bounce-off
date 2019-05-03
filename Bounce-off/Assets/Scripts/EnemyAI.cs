@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     bool facingRight = true;
     private bool inAir;
     public Transform groundCheck;
+    public float maxGroundDistance = 2f;
     //public float distance = 2f;
     //public float rotationSpeed = 2f;
 
@@ -46,7 +47,7 @@ public class EnemyAI : MonoBehaviour
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         //Check ground
-        RaycastHit2D ground = Physics2D.Raycast(groundCheck.position, Vector2.down);
+        RaycastHit2D ground = Physics2D.Raycast(groundCheck.position, Vector2.down, maxGroundDistance);
 
         //Draw a line to see RayCast
         Debug.DrawRay(groundCheck.position, Vector3.down, Color.magenta);
