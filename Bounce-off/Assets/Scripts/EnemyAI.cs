@@ -7,23 +7,26 @@ public class EnemyAI : MonoBehaviour
 {
     public float speed;
     bool facingRight = true;
-    public float distance = 2f;
-    public float rotationSpeed = 2f;
-    public Transform groundCheck;
     private bool inAir;
+    public Transform groundCheck;
+    //public float distance = 2f;
+    //public float rotationSpeed = 2f;
 
-    public Quaternion originalRotation;
-    public float rotateSpeed = 0.1f;
+    //public Quaternion originalRotation;
+    //public float rotateSpeed = 0.1f;
     //bool restoreRotation = false;
     void Start()
     {
-        originalRotation = transform.rotation;
+        //originalRotation = transform.rotation;
         inAir = false;
 
     }
     // Update is called once per frame
     void Update()
     {
+        Movement();
+        /* Rotation not in use
+         
         var Rotation = transform.rotation.z;
 
 
@@ -31,21 +34,14 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Jag är åt fel håll");
             RestoreRotation();
-            // restoreRotation = true;
+            restoreRotation = true;
         }
-
-        Movement();
-
-      //  CheckInAir();
+        */
     }
 
  
     private void Movement()
     {
-
-        //RaycastHit2D myRay = Physics2D.Raycast(transform.position, Vector2.down);
-        //Debug.Log($"{myRay.collider.name}");
-
         //EnemyMovment
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
@@ -56,16 +52,13 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(groundCheck.position, Vector3.down, Color.magenta);
 
         // Change direction
-      
             Flip(ground);
-
-        
     }
 
-    private void RestoreRotation()
-    {
-       transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
-    }
+    //private void RestoreRotation()
+    //{
+    //   transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
+    //}
 
     private void Flip(RaycastHit2D ground)
     {
@@ -86,7 +79,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         CheckInAir(ground);
-
     }
 
     private void CheckInAir(RaycastHit2D ground)

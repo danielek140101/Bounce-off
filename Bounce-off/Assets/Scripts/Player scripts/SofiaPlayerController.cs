@@ -15,8 +15,6 @@ public class SofiaPlayerController : MonoBehaviour
     {
         // rb = GetComponent<Rigidbody2D>();
         rb = transform.GetComponent<Rigidbody2D>();
-
-
 }
 
 private void FixedUpdate()
