@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10f;
     public bool facingRight = true;
     Rigidbody2D rb;
+    Animator animation;
 
     //Jump
     public float jumpForce = 300.0f;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
   
         rb = transform.GetComponent<Rigidbody2D>();
+        animation = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -40,7 +42,6 @@ public class PlayerController : MonoBehaviour
         if (move != 0)
         {
             rb.velocity = new Vector2(speed * move, rb.velocity.y);
-
         }
 
         if (move < 0 && facingRight)
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
+        animation.SetFloat("MoveSpeed", Math.Abs(move));
 
     }
 
