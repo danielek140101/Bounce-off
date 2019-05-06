@@ -94,7 +94,9 @@ public class PlayerController : MonoBehaviour
             //Lufthopp efter fall
             if (DoneWithGroundJump == false)
             {
-                airJumpForce *= 10;
+                airJumpForce = 850f;
+                
+                
             }
 
             rb.AddForce(Vector2.up * airJumpForce);
