@@ -27,21 +27,25 @@ public class AiShoot : MonoBehaviour
         RaycastHit2D sightRight = Physics2D.Raycast(transform.position, Vector2.right, 100, MaskToHit);
         RaycastHit2D sightLeft = Physics2D.Raycast(transform.position, Vector2.left, 100, MaskToHit);
 
-        float playerPos = sightRight.collider.transform.position.x;
         float myPos = GetComponentInParent<Rigidbody2D>().transform.position.x;
 
-        Shoot(sightRight, () => myPos < playerPos );
-        Shoot(sightLeft, () => myPos > playerPos);
+       
+        //Shoot(sightRight, (float playerPos) => myPos < playerPos );
+        Shoot(sightLeft, (float playerPos) => myPos > playerPos);
 
 
     }
 
-    private void Shoot(RaycastHit2D sight, Func<bool> exp)
+    private void Shoot(RaycastHit2D sight, Func<float,bool> exp)
     {
-        if (sight.collider != null && exp() && Time.time > shotCooldown)
+ 
+
+        if (sight.collider && exp(sight.collider.transform.position.x) && Time.time > shotCooldown)
         {
                 shotCooldown = Time.time + fireRate;
                 Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+            Debug.Log($"{exp(sight.collider.transform.position.x)}");
 
                 //if (sight.collider)
                 //    Debug.Log($"I shoot {sight.collider.name}");
