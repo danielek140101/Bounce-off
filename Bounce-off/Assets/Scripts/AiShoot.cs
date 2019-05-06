@@ -7,7 +7,7 @@ public class AiShoot : MonoBehaviour
 {
     //Detect player
     //public int maximumSightDistance = 0;
-    //public string HitByTag = "Player";
+    public string HitByTag = "Player";
     public LayerMask MaskToHit;
 
     //Shoot
@@ -42,7 +42,7 @@ public class AiShoot : MonoBehaviour
         {
 
             Collider2D target = sight.collider;
-            bool validTarget = (target.gameObject.layer == MaskToHit);
+            bool validTarget = target.CompareTag(HitByTag);
             bool validPos = playerInFront(target.transform.position.x);
 
 
