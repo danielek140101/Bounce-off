@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             //Lufthopp efter fall
             if (DoneWithGroundJump == false)
             {
-                airJumpForce = 850f;
+                airJumpForce = 650f;
                 
                 
             }
