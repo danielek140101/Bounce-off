@@ -6,7 +6,8 @@ using UnityEngine;
 public class AiShoot : MonoBehaviour
 {
     //Detect player
-    public int maximumSightDistance = 0;
+    //public int maximumSightDistance = 0;
+    //public string HitByTag = "Player";
     public LayerMask MaskToHit;
 
     //Shoot
@@ -29,26 +30,33 @@ public class AiShoot : MonoBehaviour
 
         float myPos = GetComponentInParent<Rigidbody2D>().transform.position.x;
 
-
-        Shoot(sightRight, (float playerPos) => myPos < playerPos );
+        Shoot(sightRight, (float playerPos) => myPos < playerPos);
         Shoot(sightLeft, (float playerPos) => myPos > playerPos);
+
 
     }
 
-    private void Shoot(RaycastHit2D sight, Func<float, bool> exp)
+    private void Shoot(RaycastHit2D sight, Func<float, bool> playerInFront)
     {
-
-
-        if (sight.collider && exp(sight.collider.transform.position.x) && Time.time > shotCooldown)
+        if (sight.collider != null)
         {
-            shotCooldown = Time.time + fireRate;
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
 
-            Debug.Log($"{exp(sight.collider.transform.position.x)}");
+            Collider2D target = sight.collider;
+            bool validTarget = (target.gameObject.layer == MaskToHit);
+            bool validPos = playerInFront(target.transform.position.x);
 
-            //if (sight.collider)
-            //    Debug.Log($"I shoot {sight.collider.name}");
 
+            if (validTarget && validPos && Time.time > shotCooldown)
+            {
+                shotCooldown = Time.time + fireRate;
+                Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+                Debug.Log($"{playerInFront(target.transform.position.x)}");
+
+                //if (sight.collider)
+                //    Debug.Log($"I shoot {sight.collider.name}");
+
+            }
         }
     }
 }
