@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Killzone
   - Bullet
+  - Music
   layers:
   - Default
   - TransparentFX
