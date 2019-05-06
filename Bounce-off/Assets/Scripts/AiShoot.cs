@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,8 @@ public class AiShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public float fireRate = 0.5f;
     private float shotCooldown = 0.0f;
-    private float placement;
+    private Collider2D target;
+    private bool inSight = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,30 +26,25 @@ public class AiShoot : MonoBehaviour
     {
         RaycastHit2D sightRight = Physics2D.Raycast(transform.position, Vector2.right, 100, MaskToHit);
         RaycastHit2D sightLeft = Physics2D.Raycast(transform.position, Vector2.left, 100, MaskToHit);
-
-        float playerPos = sightRight.collider.transform.position.x;
-        float myPos = GetComponentInParent<Rigidbody2D>().transform.position.x;
-
-        Shoot(sightRight, () => myPos < playerPos );
-        Shoot(sightLeft, () => myPos > playerPos);
+     
 
 
-    }
 
-    private void Shoot(RaycastHit2D sight, Func<bool> exp)
-    {
-        if (sight.collider != null && exp() && Time.time > shotCooldown)
+        if (sightRight.collider && Time.time > shotCooldown)
         {
-                shotCooldown = Time.time + fireRate;
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+       
+            shotCooldown = Time.time + fireRate;
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
 
-                //if (sight.collider)
-                //    Debug.Log($"I shoot {sight.collider.name}");
-            
+            if (sightRight.collider)
+                Debug.Log($"I shoot RIGHT {sightRight.collider.name}");
+            if (sightLeft.collider)
+                Debug.Log($"I shoot LEFT {sightLeft.collider.name}");
+
+
         }
+
     }
+
+
 }
-
-
-
-
