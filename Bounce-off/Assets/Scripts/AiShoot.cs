@@ -14,7 +14,6 @@ public class AiShoot : MonoBehaviour
     public float fireRate = 0.5f;
     private float shotCooldown = 0.0f;
     private Collider2D target;
-    private bool inSight = false;
 
     // Start is called before the first frame update
     void Start()

@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        animation.SetFloat("MoveSpeed", Math.Abs(move));
+       // animation.SetFloat("MoveSpeed", Math.Abs(move));
 
     }
 
