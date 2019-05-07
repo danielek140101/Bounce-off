@@ -20,20 +20,17 @@ namespace BounceSQL.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Index(HighScoreVM hs)
+        [Route("SubmitScore")]
+        public async Task<IActionResult> SubmitHighScore([FromBody]HighScoreVM hs)
         {
-            if (!ModelState.IsValid)
-                return View(hs);
 
-            await service.SetScore(hs);
-            return RedirectToAction(nameof(Index));
+            //await service.SetScore(hs);
+
+            var result = await service.GetScore();
+
+            return Json(result);
         }
 
-        [HttpPost]
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
     }
 }

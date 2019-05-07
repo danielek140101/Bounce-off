@@ -7,6 +7,6 @@ namespace BounceSQL.Models.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public TimeSpan Score { get; set; }
+        public int Score { get; set; }
     }
 }

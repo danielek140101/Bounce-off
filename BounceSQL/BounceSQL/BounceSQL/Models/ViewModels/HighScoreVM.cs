@@ -8,6 +8,6 @@ namespace BounceSQL.Models.ViewModels
     public class HighScoreVM
     {
         public string Name { get; set; }
-        public TimeSpan Score { get; set; }
+        public int Score { get; set; }
     }
 }
