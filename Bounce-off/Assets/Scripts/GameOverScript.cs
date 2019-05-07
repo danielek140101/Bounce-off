@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
@@ -45,6 +46,16 @@ public class GameOverScript : MonoBehaviour
         {
             b.gameObject.SetActive(true);
         }
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
 
