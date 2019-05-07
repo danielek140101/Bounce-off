@@ -1,12 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour
 {
 
     private Button[] buttons;
+
+    private void Start()
+    {
+        if (GUI.Button(new Rect(0, 0, 80, 20), "Play again"))
+        {
+            SceneManager.LoadScene("Main");
+        }
+        if (GUI.Button(new Rect(0, 25, 80, 20), "Quit"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+       
+    }
 
     void Awake()
     {
@@ -32,16 +46,6 @@ public class GameOverScript : MonoBehaviour
             b.gameObject.SetActive(true);
         }
     }
-
-    public void ExitToMenu()
-    {
-        // Reload the level
-        Application.LoadLevel("Menu");
-    }
-
-    public void RestartGame()
-    {
-        // Reload the level
-        Application.LoadLevel("Stage1");
-    }
 }
+
+    
