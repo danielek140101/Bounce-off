@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
-    public float restartDelay = 1f;
+   // public float restartDelay = 1f;
     
     public void GameOver()
     {
@@ -19,8 +19,9 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game over");
         }
     }
-   
-    void Restart ()
+
+
+    void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

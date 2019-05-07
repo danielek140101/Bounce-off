@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,19 @@ public class GameOverScript : MonoBehaviour
 {
 
     private Button[] buttons;
+
+    private void Start()
+    {
+        if (GUI.Button(new Rect(0, 0, 80, 20), "Play again"))
+        {
+            SceneManager.LoadScene("Main");
+        }
+        if (GUI.Button(new Rect(0, 25, 80, 20), "Quit"))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+       
+    }
 
     void Awake()
     {
@@ -44,3 +58,5 @@ public class GameOverScript : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 }
+
+    
