@@ -227,7 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 635503287}
   - component: {fileID: 635503286}
-  - component: {fileID: 635503285}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -235,14 +234,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &635503285
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635503284}
-  m_Enabled: 1
 --- !u!20 &635503286
 Camera:
   m_ObjectHideFlags: 0
@@ -311,6 +302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393925224884482003, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7393925224000271270, guid: 2f9818b6d4cf57f4296731ee301b003a,
         type: 3}
@@ -552,11 +548,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.72222227
       objectReference: {fileID: 0}
-    - target: {fileID: 7393925224884482003, guid: 2f9818b6d4cf57f4296731ee301b003a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7393925224610801077, guid: 2f9818b6d4cf57f4296731ee301b003a,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -662,9 +653,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7393925225883953534, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1955565101}
+    - target: {fileID: 7393925225883953534, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAudioLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393925225883953534, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393925225883953534, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393925225883953533, guid: 2f9818b6d4cf57f4296731ee301b003a,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7393925224884482001, guid: 2f9818b6d4cf57f4296731ee301b003a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2f9818b6d4cf57f4296731ee301b003a, type: 3}
+--- !u!114 &1955565101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7393925225883953533, guid: 2f9818b6d4cf57f4296731ee301b003a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1634646598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100ccafae25cf4f45a476404c5f4e2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2009120613
 PrefabInstance:
   m_ObjectHideFlags: 0

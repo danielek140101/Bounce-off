@@ -204,6 +204,7 @@ MonoBehaviour:
   firePoint: {fileID: 7612686753465178302}
   bulletPrefab: {fileID: 4976693217824506559, guid: 483d5ce6a40b04d4c969088d78e01285,
     type: 3}
+  animation: {fileID: 0}
 --- !u!114 &7612686754283910384
 MonoBehaviour:
   m_ObjectHideFlags: 0
