@@ -35,17 +35,10 @@ namespace BounceSQL.Models
                 {
                     Name = o.Name,
                     Score = o.Score
-                }
-                ).ToArrayAsync();
-
-            //var scoreList = new List<HighScore>();
-            //foreach (var item in context.HighScore)
-            //{
-            //    scoreList.Add(item);
-            //}
-
-            //return await scoreList.ToArrayAsync();
+                }).OrderByDescending(o=> o.Score)
+                .ToArrayAsync();
         }
+
       
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -17,36 +19,20 @@ public class HighScore : MonoBehaviour
 
     void Start()
     {
-
+        
     }
-
 
     public void SubmitHighScore()
     {
-        //nickName = playerName.text;
-        score = new TimeSpan(0, 1, 2);
+        ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, policy) => true;
+        var client = new HttpClient();
+        var result = client.GetStringAsync("https://localhost:44362/submitscore").Result;
+        //var result = client.GetStringAsync("https://www.google.se/").Result;
+        var i = result.Length;
 
-        GetRequest("https://error.html");
-    }
+        Debug.Log($"{i}");
 
-    IEnumerator GetRequest(string uri)
-    {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
-        {
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
 
-            string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
 
-            if (webRequest.isNetworkError)
-            {
-                Debug.Log(pages[page] + ": Error: " + webRequest.error);
-            }
-            else
-            {
-                Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-            }
-        }
     }
 }

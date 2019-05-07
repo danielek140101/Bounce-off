@@ -33,18 +33,17 @@ namespace BounceSQL.Models.Entities
             modelBuilder.Entity<HighScore>(entity =>
             {
                 entity.HasIndex(e => e.Name)
-                    .HasName("UQ__HighScor__72E12F1B24946F20")
+                    .HasName("UQ__HighScor__72E12F1B41474263")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Name)
+                    .IsRequired()
                     .HasColumnName("name")
                     .HasMaxLength(64);
 
-                entity.Property(e => e.Score)
-                    .HasColumnName("score")
-                    .HasColumnType("time(2)");
+                entity.Property(e => e.Score).HasColumnName("score");
             });
         }
     }
