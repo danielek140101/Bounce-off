@@ -7,7 +7,13 @@ namespace BounceSQL.Models
 {
     public class HighScore
     {
+        public HighScore(string name, int score)
+        {
+            Name = name;
+            Score = score;
+        }
+
         public string Name { get; set; }
-        public DateTime Score { get; set; }
+        public int Score { get; set; }
     }
 }

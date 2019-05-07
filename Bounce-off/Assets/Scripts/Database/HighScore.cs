@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class HighScoreController : MonoBehaviour
+public class HighScore : MonoBehaviour
 {
     public InputField nameField;
     public int score = 10;
