@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
             var gameOver = FindObjectOfType<GameOverScript>();
             gameOver.ShowButtons();
             Debug.Log("Game over");
-            //Invoke("Restart", restartDelay);
-            Restart();
         }
     }
    
