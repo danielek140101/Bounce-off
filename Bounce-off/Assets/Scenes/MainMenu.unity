@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 197722523}
   - component: {fileID: 197722522}
   m_Layer: 5
-  m_Name: QuitGame
+  m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 323597880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d586fc57359e44e4a8d343d45a455f12, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d9724ee299e3de48ba90c34b4be0927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &329831064
@@ -1810,7 +1810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13207549, g: 0.09033465, b: 0.09033465, a: 0.78431374}
+  m_Color: {r: 0.13207549, g: 0.09033465, b: 0.09033465, a: 0.79607844}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1915,18 +1915,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1394871753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 323597882}
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1394871753
@@ -2122,12 +2111,12 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457483926}
-        m_MethodName: SetAudioLevel
-        m_Mode: 0
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2144,11 +2133,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1457483923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344d0d11a476a0443bc898b090873616, type: 3}
+  m_Script: {fileID: 11500000, guid: 100ccafae25cf4f45a476404c5f4e2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  mixer: {fileID: 24100000, guid: a716c6c5a349eed469aad450cb7a5aeb, type: 2}
+  slider: {fileID: 1457483925}
+  mixer: {fileID: 24100000, guid: 5eb05675997315e4da746129dd692aec, type: 2}
 --- !u!1 &1524301059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2394,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976138326}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1976138328
 Camera:
   m_ObjectHideFlags: 0
