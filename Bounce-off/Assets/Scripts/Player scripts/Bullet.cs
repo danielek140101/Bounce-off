@@ -6,8 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     public float speed = 20f;
-    public Rigidbody2D rb;
-    public Bullet bullet;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
-            GetComponent<SpriteRenderer>().enabled = false;
-            Destroy(bullet);
+            Destroy(gameObject);
         }
     }
     private void FixedUpdate()
@@ -31,7 +29,7 @@ public class Bullet : MonoBehaviour
 
         if (screenPosition.x > Screen.width || screenPosition.x < 0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
