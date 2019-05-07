@@ -38,7 +38,10 @@ namespace BounceSQL
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller=Game}/{action=Index}/{id?}");
+            });
         }
     }
 }
