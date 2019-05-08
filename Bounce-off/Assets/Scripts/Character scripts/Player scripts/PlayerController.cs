@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     {
         Walk();
         Jump();
-
     }
 
     private void Walk()
