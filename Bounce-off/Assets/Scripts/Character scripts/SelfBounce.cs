@@ -13,12 +13,6 @@ public class SelfBounce : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
-    void Update()
-    {
-
-    }
-
     public void OnCollisionEnter2D(Collision2D coll)
     {
         if (!coll.gameObject.name.Equals("Ground"))
@@ -38,8 +32,6 @@ public class SelfBounce : MonoBehaviour
                 //Debug.Log("Bakstuds");
 
             }
-
-
 
             Debug.Log($"Studsar på:{coll.gameObject.name}");
             

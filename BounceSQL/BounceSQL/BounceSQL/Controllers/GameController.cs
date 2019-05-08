@@ -21,11 +21,9 @@ namespace BounceSQL.Controllers
 
 
         [Route("SubmitScore")]
-        public async Task<IActionResult> SubmitHighScore([FromBody]HighScoreVM hs)
+        public async Task<IActionResult> SubmitHighScore(HighScoreVM hs)
         {
-
-            //await service.SetScore(hs);
-
+            await service.SetScore(hs);
             var result = await service.GetScore();
 
             return Json(result);

@@ -13,7 +13,6 @@ public class ThrowBall : MonoBehaviour
     {
         animation = GetComponent<Animator>();
     }
-    // Update is called once per frame
     void Update()
     {
         animation.SetBool("Shoot", false);
@@ -24,7 +23,6 @@ public class ThrowBall : MonoBehaviour
             Shoot();
         }
     }
-
 
     void Shoot()
     {
