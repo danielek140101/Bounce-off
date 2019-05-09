@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
         */
     }
 
- 
+
     private void Movement()
     {
         //EnemyMovment
@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
         Debug.DrawRay(groundCheck.position, Vector3.down, Color.magenta);
 
         // Change direction
-            Flip(ground);
+        Flip(ground);
     }
 
     //private void RestoreRotation()
@@ -69,13 +69,13 @@ public class EnemyAI : MonoBehaviour
             {
                 transform.eulerAngles = new Vector2(0, -180);
                 facingRight = false;
-          
+
             }
             else if (!facingRight && !inAir)
             {
                 transform.eulerAngles = new Vector2(0, 0);
                 facingRight = true;
-         
+
             }
         }
 

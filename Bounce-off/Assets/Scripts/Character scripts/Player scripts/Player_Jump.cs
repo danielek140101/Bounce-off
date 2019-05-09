@@ -12,7 +12,7 @@ public class Player_Jump : MonoBehaviour
     private bool grounded = false;
     private bool DoneWithAirJump = false;
     private bool groundJump = false;
-  
+
 
 
     private void FixedUpdate()
@@ -28,21 +28,20 @@ public class Player_Jump : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * jumpForce);
             groundJump = true;
-           
+
         }
 
-        if(jump && !grounded && !DoneWithAirJump)
+        if (jump && !grounded && !DoneWithAirJump)
         {
             var airJumpForce = jumpForce;
 
-            if(groundJump == true)
+            if (groundJump == true)
             {
                 airJumpForce *= 50;
             }
             GetComponent<Rigidbody2D>().AddForce(Vector3.up * airJumpForce);
 
             DoneWithAirJump = true;
-
         }
     }
 }

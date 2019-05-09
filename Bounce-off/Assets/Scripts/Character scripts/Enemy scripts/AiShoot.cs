@@ -19,6 +19,7 @@ public class AiShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //Debug.Log($"My position {transform.position}");
     }
 
@@ -32,19 +33,14 @@ public class AiShoot : MonoBehaviour
 
         Shoot(sightRight, (float playerPos) => myPos < playerPos);
         Shoot(sightLeft, (float playerPos) => myPos > playerPos);
-
-
     }
-
     private void Shoot(RaycastHit2D sight, Func<float, bool> playerInFront)
     {
         if (sight.collider != null)
         {
-
             Collider2D target = sight.collider;
             bool validTarget = target.CompareTag(HitByTag);
             bool validPos = playerInFront(target.transform.position.x);
-
 
             if (validTarget && validPos && Time.time > shotCooldown)
             {
@@ -60,4 +56,3 @@ public class AiShoot : MonoBehaviour
         }
     }
 }
-

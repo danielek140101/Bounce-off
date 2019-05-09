@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     Rigidbody2D rb;
     Animator animation;
+    AudioSource audio;
 
     //Jump
     public float jumpForce = 300.0f;
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-  
+        audio = GetComponent<AudioSource>();
         rb = transform.GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
     }
@@ -47,20 +48,20 @@ public class PlayerController : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0, -180);
             facingRight = !facingRight;
-           // Debug.Log("Höger");
+            // Debug.Log("Höger");
         }
-          
+
 
         if (move > 0 && !facingRight)
         {
             transform.eulerAngles = new Vector2(0, 0);
-            facingRight = true ;
+            facingRight = true;
 
             //Debug.Log("Vänster");
 
 
         }
-       animation.SetFloat("MoveSpeed", Math.Abs(move));
+        animation.SetFloat("MoveSpeed", Math.Abs(move));
 
     }
 
@@ -68,21 +69,21 @@ public class PlayerController : MonoBehaviour
     {
         bool jump = Input.GetButtonDown("Jump");
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGroundLayer);
-       
+
         //Landning
         if (grounded)
         {
             DoneWithAirJump = false;
             DoneWithGroundJump = false;
         }
- 
+
 
         // Vanligt hopp
-        if (jump && grounded) 
+        if (jump && grounded)
         {
             rb.AddForce(Vector2.up * jumpForce);
             DoneWithGroundJump = true;
-
+            audio.Play();
         }
 
         //Lufthopp
@@ -94,13 +95,13 @@ public class PlayerController : MonoBehaviour
             if (DoneWithGroundJump == false)
             {
                 airJumpForce = 650f;
-                
-                
+
+
             }
 
             rb.AddForce(Vector2.up * airJumpForce);
             DoneWithAirJump = true;
-
+            audio.Play();
         }
     }
 
