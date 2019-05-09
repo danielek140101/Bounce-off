@@ -56,11 +56,6 @@ public class EnemyAI : MonoBehaviour
         Flip(ground);
     }
 
-    //private void RestoreRotation()
-    //{
-    //   transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, Time.time * rotateSpeed);
-    //}
-
     private void Flip(RaycastHit2D ground)
     {
         if (ground.collider == false && !inAir)
