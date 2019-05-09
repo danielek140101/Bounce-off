@@ -6,6 +6,9 @@ using BounceSQL.Models;
 using BounceSQL.Models.Entities;
 using BounceSQL.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace BounceSQL.Controllers
 {
@@ -21,9 +24,12 @@ namespace BounceSQL.Controllers
 
 
         [Route("SubmitScore")]
-        public async Task<IActionResult> SubmitHighScore(HighScoreVM hs)
+        public async Task<IActionResult> SubmitHighScore([FromBody]HighScoreVM hs)
         {
-            await service.SetScore(hs);
+            
+           // var JsonScore = JsonConvert.DeserializeObject<HighScoreVM>(hs.ToString());
+
+           await service.SetScore(hs);
             var result = await service.GetScore();
 
             return Json(result);

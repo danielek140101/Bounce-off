@@ -30,24 +30,21 @@ public class HighScore : MonoBehaviour
     {
         ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, policy) => true;
         var client = new HttpClient();
-        var GetResult = client.GetStringAsync(url).Result;
+        //var GetResult = client.GetStringAsync(url).Result;
 
         //Set
         HighScoreVM newScore = new HighScoreVM { Name = NameField.text, Score = score };
         var JsonScore = JsonConvert.SerializeObject(newScore);
-
         var content = new StringContent(JsonScore.ToString(), Encoding.UTF8, "application/json");
-        var PostResult = client.PostAsync(url, content).Result;
 
-        Debug.Log(PostResult);
+        Debug.Log(content);
+        var PostResult = client.PostAsync(url, content).Result;
+        //Debug.Log(PostResult);
 
         //Get
-        scoreList = JsonConvert.DeserializeObject<HighScoreVM[]>(GetResult);
+        var jsonResult = PostResult.Content.ReadAsStringAsync().Result;
+        scoreList = JsonConvert.DeserializeObject<HighScoreVM[]>(jsonResult);
         UIList.text = returnScore();
-
-        Debug.Log($"{scoreList[0].Name}");
-
-
 
     }
 
