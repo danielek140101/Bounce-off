@@ -32,11 +32,13 @@ namespace BounceSQL.Models.Entities
 
             modelBuilder.Entity<HighScore>(entity =>
             {
-                entity.HasIndex(e => e.Name)
-                    .HasName("UQ__HighScor__72E12F1B41474263")
-                    .IsUnique();
-
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Date)
+                    .IsRequired()
+                    .HasColumnName("date")
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Name)
                     .IsRequired()

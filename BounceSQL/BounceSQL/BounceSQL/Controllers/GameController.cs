@@ -27,10 +27,8 @@ namespace BounceSQL.Controllers
         public async Task<IActionResult> SubmitHighScore([FromBody]HighScoreVM hs)
         {
             
-           // var JsonScore = JsonConvert.DeserializeObject<HighScoreVM>(hs.ToString());
-
            await service.SetScore(hs);
-            var result = await service.GetScore();
+           var result = await service.GetScore();
 
             return Json(result);
         }

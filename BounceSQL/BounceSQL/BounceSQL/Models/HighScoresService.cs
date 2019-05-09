@@ -34,7 +34,8 @@ namespace BounceSQL.Models
                 .Select(o => new HighScoreVM
                 {
                     Name = o.Name,
-                    Score = o.Score
+                    Score = o.Score,
+                    Date = o.Date.ToString()
                 }).OrderByDescending(o=> o.Score)
                 .ToArrayAsync();
         }

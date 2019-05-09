@@ -9,5 +9,6 @@ namespace BounceSQL.Models.ViewModels
     {
         public string Name { get; set; }
         public int Score { get; set; }
+        public string Date { get; set; }
     }
 }

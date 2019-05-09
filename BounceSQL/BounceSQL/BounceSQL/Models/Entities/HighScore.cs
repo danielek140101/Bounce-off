@@ -8,5 +8,6 @@ namespace BounceSQL.Models.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public int Score { get; set; }
+        public string Date { get; set; }
     }
 }

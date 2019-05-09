@@ -33,7 +33,7 @@ public class HighScore : MonoBehaviour
         //var GetResult = client.GetStringAsync(url).Result;
 
         //Set
-        HighScoreVM newScore = new HighScoreVM { Name = NameField.text, Score = score };
+        HighScoreVM newScore = new HighScoreVM { Name = NameField.text, Score = score, Date = DateTime.Now.ToString()};
         var JsonScore = JsonConvert.SerializeObject(newScore);
         var content = new StringContent(JsonScore.ToString(), Encoding.UTF8, "application/json");
 
