@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
     public int remainingEnemies;
     bool gameHasEnded = false;
     public bool playerIsDead = false;
-    public AudioClip YouWin;
-    public AudioClip Lose;
 
     // public float restartDelay = 1f;
 
@@ -23,7 +21,6 @@ public class GameManager : MonoBehaviour
     public Image FinalPanel;
     public Button PlayAgainButton;
     public Button QuitButton;
-    public AudioSource audio;
 
 
     private void Update()
@@ -42,26 +39,11 @@ public class GameManager : MonoBehaviour
     {
         PlayAgainButton.gameObject.SetActive(true);
         QuitButton.gameObject.SetActive(true);
-        FinalText.gameObject.SetActive(true);
         FinalPanel.gameObject.SetActive(true);
+        FinalText.gameObject.SetActive(true);
+
         FinalText.text = message;
-
-        //audio.Play();
     }
-    private void WinAudio()
-    {
-        audio.Stop();
-        audio.clip = YouWin;
-        audio.Play();
-    }
-
-    private void LoseAudio()
-    {
-        audio.Stop();
-        audio.clip = Lose;
-        audio.Play();
-    }
-
     private void HideUI()
     {
         FinalPanel.gameObject.SetActive(false);
@@ -93,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         gameHasEnded = true;
         ShowUI("Game Over");
-        LoseAudio();
+        AudioManager.manager.Lose.Play();
         Debug.Log("Game over");
     }
 
@@ -104,8 +86,8 @@ public class GameManager : MonoBehaviour
             {
                 gameHasEnded = true;
                 ShowUI("You Win!");
-                WinAudio();
                 Debug.Log("Win");
+                AudioManager.manager.YouWin.Play();
             }
         }
     }
@@ -120,6 +102,5 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Main");
-        audio.Play();
     }
 }

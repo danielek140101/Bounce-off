@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-        private void Awake()
+    public static AudioManager manager;
+    public AudioSource JumpSound;
+    public AudioSource ShootSound;
+    public AudioSource YouWin;
+    public AudioSource Lose;
+    private void Awake()
     {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Music");
-        if (objects.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        manager = this;
     }
 }

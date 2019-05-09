@@ -16,9 +16,9 @@ public class ThrowBall : MonoBehaviour
     void Update()
     {
         animation.SetBool("Shoot", false);
-
         if (Input.GetButtonDown("Fire1"))
         {
+
             animation.SetBool("Shoot", true);
             Shoot();
         }
@@ -26,6 +26,7 @@ public class ThrowBall : MonoBehaviour
 
     void Shoot()
     {
+        AudioManager.manager.ShootSound.Play();
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

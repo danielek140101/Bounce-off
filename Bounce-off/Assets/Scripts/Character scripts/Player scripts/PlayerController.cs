@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     Rigidbody2D rb;
     Animator animation;
-    AudioSource audio;
 
     //Jump
     public float jumpForce = 300.0f;
@@ -24,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
         rb = transform.GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
     }
@@ -83,14 +81,14 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce);
             DoneWithGroundJump = true;
-            audio.Play();
+            AudioManager.manager.JumpSound.Play();
         }
 
         //Lufthopp
         if (jump && !grounded && !DoneWithAirJump)
         {
+            AudioManager.manager.JumpSound.Play();
             var airJumpForce = jumpForce;
-
             //Lufthopp efter fall
             if (DoneWithGroundJump == false)
             {
@@ -101,7 +99,6 @@ public class PlayerController : MonoBehaviour
 
             rb.AddForce(Vector2.up * airJumpForce);
             DoneWithAirJump = true;
-            audio.Play();
         }
     }
 
