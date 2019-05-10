@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca1bd4da4891194890627156587462d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTimeMin: 5
   UIList: {fileID: 567976877}
   NameField: {fileID: 1624437683}
 --- !u!1 &543279405

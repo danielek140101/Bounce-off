@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         CheckWin();
         CheckLose();
+
     }
 
     public void Start()
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         gameHasEnded = true;
         ShowUI("Game Over");
-        AudioManager.manager.Lose.Play();
+        AudioManager.manager.Lose.Play();  
         Debug.Log("Game over");
     }
 
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == false)
         {
             {
-                gameHasEnded = true;
+                gameHasEnded = true; 
                 ShowUI("You Win!");
                 Debug.Log("Win");
                 AudioManager.manager.YouWin.Play();
