@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Button QuitButton;
     public Text HighScore;
     public Button PlayerInput;
+    //public Text PlayerName;
+    public InputField EnterPlayerName;
 
 
 
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
         FinalText.gameObject.SetActive(true);
         HighScore.gameObject.SetActive(true);
         PlayerInput.gameObject.SetActive(true);
+        EnterPlayerName.gameObject.SetActive(true);
         FinalText.text = message;
     }
     private void HideUI()
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
         FinalText.gameObject.SetActive(false);
         HighScore.gameObject.SetActive(false);
         PlayerInput.gameObject.SetActive(false);
+        EnterPlayerName.gameObject.SetActive(false);
     }
 
     private void CheckLose()
