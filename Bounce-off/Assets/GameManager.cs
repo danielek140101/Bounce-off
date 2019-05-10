@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
     public Image FinalPanel;
     public Button PlayAgainButton;
     public Button QuitButton;
+    public Text HighScore;
+    public Button PlayerInput;
+    //public Text PlayerName;
+    public InputField EnterPlayerName;
+
 
 
     private void Update()
@@ -42,7 +47,9 @@ public class GameManager : MonoBehaviour
         QuitButton.gameObject.SetActive(true);
         FinalPanel.gameObject.SetActive(true);
         FinalText.gameObject.SetActive(true);
-
+        HighScore.gameObject.SetActive(true);
+        PlayerInput.gameObject.SetActive(true);
+        EnterPlayerName.gameObject.SetActive(true);
         FinalText.text = message;
     }
     private void HideUI()
@@ -51,6 +58,9 @@ public class GameManager : MonoBehaviour
         PlayAgainButton.gameObject.SetActive(false);
         QuitButton.gameObject.SetActive(false);
         FinalText.gameObject.SetActive(false);
+        HighScore.gameObject.SetActive(false);
+        PlayerInput.gameObject.SetActive(false);
+        EnterPlayerName.gameObject.SetActive(false);
     }
 
     private void CheckLose()
