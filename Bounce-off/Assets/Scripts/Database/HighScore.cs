@@ -12,7 +12,9 @@ using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour
 {
-    private string url = "https://localhost:44362/submitscore";
+    private string url = "http://bounce-off.azurewebsites.net/submitscore";
+   // private string url = " https://localhost:44362/submitscore";
+   
 
 
     public Text UIList;
@@ -37,12 +39,13 @@ public class HighScore : MonoBehaviour
         var JsonScore = JsonConvert.SerializeObject(newScore);
         var content = new StringContent(JsonScore.ToString(), Encoding.UTF8, "application/json");
 
-        Debug.Log(content);
+        //Debug.Log(content);
         var PostResult = client.PostAsync(url, content).Result;
         //Debug.Log(PostResult);
 
         //Get
         var jsonResult = PostResult.Content.ReadAsStringAsync().Result;
+        Debug.Log(jsonResult);
         scoreList = JsonConvert.DeserializeObject<HighScoreVM[]>(jsonResult);
         UIList.text = returnScore();
 

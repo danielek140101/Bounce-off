@@ -20,7 +20,8 @@ namespace BounceSQL.Models
             context.HighScore.Add(new HighScore
             {
                 Name = scoreVM.Name,
-                Score = scoreVM.Score
+                Score = scoreVM.Score,
+                Date = scoreVM.Date
             });
             await context.SaveChangesAsync(); 
         }
@@ -31,7 +32,7 @@ namespace BounceSQL.Models
                 {
                     Name = o.Name,
                     Score = o.Score,
-                    Date = o.Date.ToString()
+                    Date = o.Date
                 }).OrderByDescending(o=> o.Score)
                 .ToArrayAsync();
         }  
