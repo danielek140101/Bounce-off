@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace BounceSQL.Controllers
 {
@@ -17,9 +18,12 @@ namespace BounceSQL.Controllers
       
 
         HighScoresService service;
-        public GameController(HighScoresService service)
+        private readonly IConfiguration configuration;
+
+        public GameController(HighScoresService service, IConfiguration configuration)
         {
             this.service = service;
+            this.configuration = configuration;
         }
 
 
@@ -33,6 +37,14 @@ namespace BounceSQL.Controllers
             return Json(result);
         }
 
-       
+
+        [Route("")]
+        public IActionResult Index()
+        {
+            return Content("OK");
+            //var connString = configuration.GetConnectionString("defaultConnection");
+            //return Content("connstring:" + connString);
+        }
+
     }
 }
